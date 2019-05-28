@@ -1,0 +1,24 @@
+{
+  "name": "learning-nodejs-projeto-jogo-de-dados",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasdetoffol/learning-nodejs-projeto-jogo-de-dados.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasdetoffol/learning-nodejs-projeto-jogo-de-dados/issues"
+  },
+  "homepage": "https://github.com/lucasdetoffol/learning-nodejs-projeto-jogo-de-dados#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0"
+  }
+}
