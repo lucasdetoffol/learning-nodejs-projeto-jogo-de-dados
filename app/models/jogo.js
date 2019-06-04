@@ -51,7 +51,7 @@ const NADA ={jogo: 'Nenhum', pontos: 0}
 
 Jogo.prototype.analisarLancamento = function(lancamento){
 
-	var contegem = this.contarDados(lancamento);
+	var contagem = this.contarDados(lancamento);
 	var resultado;
 	if (contagem.find(e=> e === 5))
 		resultado = GENERALA;
@@ -65,8 +65,29 @@ Jogo.prototype.analisarLancamento = function(lancamento){
 	return resultado;
 
 }
+  
 
-module.exports.Jogo = Jogo;
+
+Jogo.prototype.novoLancamento = function(){
+
+	console.log('model: novoLancamento');
+	var lancamento = this.lancarDados();
+	console.log('model: analisarLancamento: ', resultado); 
+	var analiseLancamento = this.analisarLancamento(lancamento);
+	this.pontos += analiseLancamento.pontos;
+	this.n += 1;
+	console.log('model: prepara resultado');
+
+	var resultado = {
+		pontosAcumulados : this.pontos,
+	    nLancamentos : this.n,
+	    lancamento : lancamento,
+	    jogoLancamento : analiseLancamento.jogo,
+	    pontosLancamento : analiseLancamento.pontos 
+	};
+    
+    return resultado;
+}
 
 jogo  = new Jogo();
 lancamento = jogo.lancarDados();
@@ -75,3 +96,5 @@ resultado = jogo.analisarLancamento(lancamento);
 console.log('Dados sorteados: ', lancamento);
 console.log('contagem: ', contagem);
 console.log('analise do lançamento', resultado);
+
+module.exports.Jogo = Jogo;

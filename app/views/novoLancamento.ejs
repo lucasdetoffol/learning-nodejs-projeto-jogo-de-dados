@@ -7,8 +7,36 @@
 	<main>
 		
 		<h1>Projeto jogar dados</h1>
-		<p>Lançamento: <% lancamento %> </p>
+
+		<p>Pontuação acumulada: <%= pontosAcumulados %></p>
+
+		<p>Número de lançamentos: <%= nLancamentos %></p>
+
+		<p>Lançamento: <%= lancamento %></p>
+
+		<p>Jogo lançamento: <%= jogoLancamento %></p>
+
+		<p>Pontuaçao lancamento: <%= pontosLancamento %></p>
+
+		<button type="button" id="buttonLancarDados">Lancar Dados</button>
+
+
+
+
 	</main>
 
 </body>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type= "text/javascript">
+
+	$(document).ready(function(){
+
+		$('#buttonLancarDados').click(function(){
+			location.href='lancaDados';
+		});
+
+	});
+
+</script>
 </html>
