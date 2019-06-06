@@ -27,3 +27,25 @@ module.exports.novoLancamento = function(application, req, res){
 	    res.render('novoLancamento', resultado);
 	}
 }
+
+
+module.exports.reiniciar = function(application, req, res){
+	console.log('controller: reiniciar');
+	if(jogoModel){
+		console.log('controller: pede para o model criar um novo jogo');
+		jogoModel.novoJogo();
+		console.log('controller: atualizar a view');
+		res.render('novoJogo');
+	}
+	else{
+		console.log('controller: atualizar a view para a página principal');
+		res.render('home');
+	}
+}
+
+module.exports.encerrar = function(application, req, res){
+    console.log('controller: encerrar');
+	jogoModel = undefined;
+	res.render('home');
+
+	}
