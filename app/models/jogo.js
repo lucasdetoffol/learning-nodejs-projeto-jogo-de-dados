@@ -65,6 +65,21 @@ Jogo.prototype.analisarLancamento = function(lancamento){
 	return resultado;
 
 }
+
+//	//var contador = this.analisarLancamento(lancamento);
+	//var resultado = 0;
+
+	//if(contador == GENERALA)
+	//	resultado += 1;
+
+	//else if(contador == POKER)
+	//	resultado += 1;
+
+	//else if (contador == FULL )
+		//resultado += 1;
+
+	//return resultado;
+//}
   
 
 
@@ -73,7 +88,10 @@ Jogo.prototype.novoLancamento = function(){
 	console.log('model: novoLancamento');
 	var lancamento = this.lancarDados();
 	console.log('model: analisarLancamento: ', resultado); 
+	console.log('model: marcador: ', resultado);
 	var analiseLancamento = this.analisarLancamento(lancamento);
+	//var marca = this.marcador();
+	//this.jogo += marca.pontos;
 	this.pontos += analiseLancamento.pontos;
 	this.n += 1;
 	console.log('model: prepara resultado');
@@ -83,7 +101,8 @@ Jogo.prototype.novoLancamento = function(){
 	    nLancamentos : this.n,
 	    lancamento : lancamento,
 	    jogoLancamento : analiseLancamento.jogo,
-	    pontosLancamento : analiseLancamento.pontos 
+	    pontosLancamento : analiseLancamento.pontos,
+	    //marcacao : marca.jogo
 	};
     
     return resultado;
@@ -93,8 +112,10 @@ jogo  = new Jogo();
 lancamento = jogo.lancarDados();
 contagem = jogo.contarDados(lancamento);
 resultado = jogo.analisarLancamento(lancamento);
+//contador = jogo.marcador();
 console.log('Dados sorteados: ', lancamento);
 console.log('contagem: ', contagem);
 console.log('analise do lançamento', resultado);
+//console.log('Contador dos dados: ', contador);
 
 module.exports.Jogo = Jogo;
