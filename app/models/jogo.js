@@ -5,6 +5,7 @@ function Jogo(dados = 5, lados = 6){
 	this.lados = lados;
 	this.pontos = 0;
 	this.n = 0;
+	this.contador = 0;
 }
 
 Jogo.prototype.novoJogo = function(){
@@ -12,6 +13,23 @@ Jogo.prototype.novoJogo = function(){
 	this.pontos = 0;
 	this.n = 0;
 }
+
+
+Jogo.prototype.marcador = function(){
+     console.log('model: marcador');
+     this.contador = 0;
+     this.pontos = 0;
+     if(this.pontos == 100 )
+       this.contador += 1;
+    else if(this.pontos == 50)
+    	this.contador += 1;
+    else if(this.pontos == 30)
+    	this.contador += 1;
+
+    return this.contador;
+}
+
+
 
 
 Jogo.prototype.lancarUmDado = function(){
@@ -66,20 +84,7 @@ Jogo.prototype.analisarLancamento = function(lancamento){
 
 }
 
-//	//var contador = this.analisarLancamento(lancamento);
-	//var resultado = 0;
 
-	//if(contador == GENERALA)
-	//	resultado += 1;
-
-	//else if(contador == POKER)
-	//	resultado += 1;
-
-	//else if (contador == FULL )
-		//resultado += 1;
-
-	//return resultado;
-//}
   
 
 
@@ -90,10 +95,9 @@ Jogo.prototype.novoLancamento = function(){
 	console.log('model: analisarLancamento: ', resultado); 
 	console.log('model: marcador: ', resultado);
 	var analiseLancamento = this.analisarLancamento(lancamento);
-	//var marca = this.marcador();
-	//this.jogo += marca.pontos;
 	this.pontos += analiseLancamento.pontos;
 	this.n += 1;
+	//this.contador += 1;
 	console.log('model: prepara resultado');
 
 	var resultado = {
@@ -102,7 +106,7 @@ Jogo.prototype.novoLancamento = function(){
 	    lancamento : lancamento,
 	    jogoLancamento : analiseLancamento.jogo,
 	    pontosLancamento : analiseLancamento.pontos,
-	    //marcacao : marca.jogo
+	    contador : this.contador
 	};
     
     return resultado;
