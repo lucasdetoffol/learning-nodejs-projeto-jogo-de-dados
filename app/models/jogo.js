@@ -5,7 +5,7 @@ function Jogo(dados = 5, lados = 6){
 	this.lados = lados;
 	this.pontos = 0;
 	this.n = 0;
-	this.contador = 0;
+	this.contador = {Generala: 0, Poker: 0, Full: 0};
 }
 
 Jogo.prototype.novoJogo = function(){
@@ -13,22 +13,6 @@ Jogo.prototype.novoJogo = function(){
 	this.pontos = 0;
 	this.n = 0;
 }
-
-
-Jogo.prototype.marcador = function(){
-     console.log('model: marcador');
-     this.contador = 0;
-     this.pontos = 0;
-     if(this.pontos == 100 )
-       this.contador += 1;
-    else if(this.pontos == 50)
-    	this.contador += 1;
-    else if(this.pontos == 30)
-    	this.contador += 1;
-
-    return this.contador;
-}
-
 
 
 
@@ -60,7 +44,7 @@ Jogo.prototype.contarDados = function(lancamento){
     return contagem;
 }
 
-const GENERALA = {jogo: 'Generala', pontos : 100 }
+const GENERALA = {jogo: 'Generala', pontos : 100}
 const POKER = {jogo: 'Poker', pontos : 50}
 const FULL = {jogo: 'Full', pontos: 30}
 const NADA ={jogo: 'Nenhum', pontos: 0}
@@ -71,12 +55,18 @@ Jogo.prototype.analisarLancamento = function(lancamento){
 
 	var contagem = this.contarDados(lancamento);
 	var resultado;
-	if (contagem.find(e=> e === 5))
+	if (contagem.find(e=> e === 5)){
 		resultado = GENERALA;
-	else if (contagem.find(e=> e ===4))
+		this.contador.Generala+=1;
+	}
+	else if (contagem.find(e=> e ===4)){
 		resultado = POKER;
-	else if(contagem.find(e => e === 3) && contagem.find(e=> e ===2))
+		this.contador.Poker+=1;
+	}
+	else if(contagem.find(e => e === 3) && contagem.find(e=> e ===2)){
 		resultado = FULL;
+		this.contador.Full+=1;
+	}
 	else
 		resultado = NADA; 
 
