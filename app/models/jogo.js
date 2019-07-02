@@ -52,7 +52,7 @@ const NADA ={jogo: 'Nenhum', pontos: 0}
 
 
 Jogo.prototype.analisarLancamento = function(lancamento){
-
+   // var totalDeJogos = this.contador.Generala + this.contador.Poker + this.contador.Full;
 	var contagem = this.contarDados(lancamento);
 	var resultado;
 	if (contagem.find(e=> e === 5)){
@@ -87,7 +87,7 @@ Jogo.prototype.novoLancamento = function(){
 	var analiseLancamento = this.analisarLancamento(lancamento);
 	this.pontos += analiseLancamento.pontos;
 	this.n += 1;
-	//this.contador += 1;
+	//var totalDeJogos = this.analisarLancamento(lancamento);
 	console.log('model: prepara resultado');
 
 	var resultado = {
@@ -96,7 +96,8 @@ Jogo.prototype.novoLancamento = function(){
 	    lancamento : lancamento,
 	    jogoLancamento : analiseLancamento.jogo,
 	    pontosLancamento : analiseLancamento.pontos,
-	    contador : this.contador
+	    contador : this.contador,
+	   // totalDeJogos : totalDoJogo
 	};
     
     return resultado;
